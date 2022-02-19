@@ -1,26 +1,35 @@
 const express = require("express");
 const path=require('path');
+const hbs=require('hbs');
 const app = express();
 let port = process.env.PORT || 8000;
 // public static path
-const staticPath=(path.join(__dirname,'../public'))
+const staticPath=(path.join(__dirname,'../public'));
+const template_path=(path.join(__dirname,'../template/views'));
+console.log(template_path);
+const partials_path=(path.join(__dirname,'../template/partials'));
+console.log(partials_path);
 // console.log(path.join(__dirname)})
+
+app.set('view engine','hbs');
+app.set('views',template_path);
+hbs.registerPartials(partials_path)
 
 app.use(express.static(staticPath));
 
 
 //routing
-app.get("/", (req, res) => {
-  res.send("welcome to weather app");
+app.get("", (req, res) => {
+  res.render('index');
 });
 app.get("/about", (req, res) => {
-  res.send("welcome to about");
+  res.render('about')
 });
 app.get("/weather", (req, res) => {
-  res.send("welcome to weather");
+  res.render('weather')
 });
 app.get('*',(req, res)=>{
-    res.send('welcom to error page')
+    res.render('error404')
 })
 app.listen(port, () => {
   console.log(`we use port no ${port}`);
