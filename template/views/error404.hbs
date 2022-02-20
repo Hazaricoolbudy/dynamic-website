@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{>headerlinks}}
+  <body>
+    <!-- nav bar -->
+    {{>navbar}}
+    <!-- nav bar completed -->
+<!--  start body -->
+<div class="container-fluid main_header my-3">
+  <div class="row">
+    <div class="col-md-10 col-12 mx-auto">
+      <div class="row">
+        <!-- right side div  -->
+        <div class="col-md-6 main_header-left align-item-center">
+          <figure>
+            <img
+              src="/imgage/error.png"
+              alt=""
+              class="img-fluid align-item-center"
+              
+            />
+          </figure>
+        </div>
+        <!-- right side div  -->
+        <div class="col-md-6 main_header-left">
+          <p>Welcome to Weather App</p>
+          <h1>
+             {{errmsg}} 
+          </h1>
+          <a href="/" target=""><button>BACK TO HOME
+              </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--  start body -->
+    
+    <!-- footer code  -->
+    {{>footer}}
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    {{>footerlinks}}
+  </body>
+</html>

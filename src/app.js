@@ -29,7 +29,10 @@ app.get("/weather", (req, res) => {
   res.render('weather')
 });
 app.get('*',(req, res)=>{
-    res.render('error404')
+    res.render('error404',
+    {
+      errmsg:"Opps Page not found"
+    })
 })
 app.listen(port, () => {
   console.log(`we use port no ${port}`);

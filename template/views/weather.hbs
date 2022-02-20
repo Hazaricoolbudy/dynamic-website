@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{>headerlinks}}
+
+    <body>
+        <!-- nav bar -->
+        {{>navbar}}
+        <!-- nav bar completed -->
+
+        <!--  start body -->
+        <div class="container-fluid main_header ">
+            <div class="row">
+                <div class="col-md-10 col-12 mx-auto">
+                    <div class="main_container">
+                        <form class="temp_form">
+                            <input type="text" id="cityName" placeholder="Enter your city name" autocomplete="off">
+                            <input type="submit" value="search" id="submitbtn">
+                        </form>
+                    </div>
+                    <div class="tempinformaion">
+                        <div class="top_layer">
+                            <p id="day"> tuesday</p>
+                            <p id="today_date"> 19 Feb</p>
+                        </div>
+                        <div class="main_layer ">
+                            <p id="city_name"> city</p>
+                            <div class="middle_layer data_hide">
+                                <p id="temp1"> <span id="temp">0</span> <sup>o</sup>C</p>
+                                <p id="temp_status"><i class="fa fa-cloud"></i></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- footer code  -->
+        {{>footer}}
+        <script src="js/main.js "></script>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        {{>footerlinks}}
+        <script>
+            const day = document.getElementById('day')
+            const getCurrentdate=() => {
+                let weekday = new Array(7);
+                weekday[0] = `sunday`;
+                weekday[1] = `Monday`;
+                weekday[2] = `tuesday`;
+                weekday[3] = `Wednesday`;
+                weekday[4] = `Thursday`;
+                weekday[5] = `Friday`;
+                weekday[6] = `Saturday`;
+
+                let currentTime = new Date();
+                days = weekday[currentTime.getDay()];
+                
+                let day = document.getElementById('day')
+
+
+                day.innerText = days;
+            }
+            getCurrentdate();
+
+
+       // {{!-- const current day  --}}
+       const getcurrentDay=()=>{
+           let currentdaymonth= new Array(12);
+           currentdaymonth[0]=`january`
+           currentdaymonth[1]=`Feb`
+           currentdaymonth[2]=`March`
+           currentdaymonth[3]=`April`
+           currentdaymonth[4]=`May`
+           currentdaymonth[5]=`june`
+           currentdaymonth[6]=`july`
+           currentdaymonth[7]=`august`
+           currentdaymonth[8]=`september`
+           currentdaymonth[9]=`october`
+           currentdaymonth[10]=`November`
+           currentdaymonth[11]=`December`
+
+           let currentDay=new Date();
+
+           month=currentdaymonth[currentDay.getMonth()];
+           let currentYear=new Date()
+           year=currentYear.getUTCFullYear();
+           
+           let today_date=document.getElementById('today_date');
+           today_date.innerText=month+' '+year;
+
+
+       }
+       getcurrentDay();
+
+        </script>
+
+    </body>
+
+</html>
