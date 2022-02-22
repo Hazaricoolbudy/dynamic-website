@@ -35,5 +35,5 @@ app.get('*',(req, res)=>{
     })
 })
 app.listen(port, () => {
-  console.log(`we use port no ${port}`);
+  
 });
